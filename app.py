@@ -1,7 +1,6 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, render_template
 from difflib import get_close_matches
 import json
-import os
 
 app = Flask(__name__)
 
@@ -20,30 +19,28 @@ def get_response(user_input):
         for question in item["questions"]:
             all_questions.append(question)
 
-    match = get_close_matches(user_input, all_questions, n=1, cutoff=0.45)
+    matches = get_close_matches(user_input, all_questions, n=3, cutoff=0.45)
 
-    if match:
-        matched_question = match[0]
-
+    if matches:
         for item in data:
-            if matched_question in item["questions"]:
-                return item["answer"]
+            for q in item["questions"]:
+                if q in matches:
+                    return item["answer"]
 
-    return "I’m not sure I understood that. Try asking about Aaron, Rubi, or Ezza."
+    return "I’m not sure I understood that. Try asking something else."
 
 @app.route("/")
 def home():
-    return send_from_directory(".", "index.html")
-
-@app.route("/styles.css")
-def css():
-    return send_from_directory(".", "styles.css")
+    return render_template("index.html")
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    user_message = request.json.get("message", "")
-    bot_response = get_response(user_message)
-    return jsonify({"response": bot_response})
+    try:
+        user_message = request.json.get("message", "")
+        response = get_response(user_message)
+        return jsonify({"response": response})
+    except:
+        return jsonify({"response": "Something went wrong."})
 
 if __name__ == "__main__":
     app.run(debug=True)
