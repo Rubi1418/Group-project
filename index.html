@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Final Project Chatbot</title>
+    <meta charset="UTF-8">
+
+    <!-- Mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A9 Chatbot</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
 <body>
 
 <div class="chat-container">
 
-    <h1>Group Chatbot</h1>
-
-    <!-- CHAT AREA -->
-    <div id="chat-box"></div>
-
-    <!-- REAL typing indicator (important for UX grade) -->
-    <div id="typing" style="display:none; font-style: italic; color: gray; margin: 5px 10px;">
-        Bot is typing...
+    <!-- Persona / Branding -->
+    <div class="persona">
+        <h2>A9 Chatbot</h2>
+        <p>Your AI assistant for student profiles</p>
     </div>
 
-    <!-- INPUT AREA -->
+    <!-- Chat Box -->
+    <div id="chat-box"></div>
+
+    <!-- Typing Indicator -->
+    <div id="typing" style="display:none; font-style: italic; color: gray; margin: 5px 10px;">
+        A9 is typing...
+    </div>
+
+    <!-- Input Area -->
     <div class="input-area">
         <input type="text" id="user-input" placeholder="Ask me a question..." />
         <button onclick="sendMessage()">Send</button>
@@ -29,68 +38,8 @@
 
 </div>
 
-<!-- JAVASCRIPT -->
-<script>
-function addMessage(sender, message) {
-    const chatBox = document.getElementById("chat-box");
-
-    const messageDiv = document.createElement("div");
-    messageDiv.className = sender === "user" ? "user-message" : "bot-message";
-    messageDiv.innerText = message;
-
-    chatBox.appendChild(messageDiv);
-    chatBox.scrollTop = chatBox.scrollHeight;
-}
-
-function showTyping() {
-    document.getElementById("typing").style.display = "block";
-}
-
-function hideTyping() {
-    document.getElementById("typing").style.display = "none";
-}
-
-function sendMessage() {
-    const input = document.getElementById("user-input");
-    const message = input.value;
-
-    // Edge case handling (required by rubric)
-    if (message.trim() === "") {
-        addMessage("bot", "Please type a question so I can help.");
-        return;
-    }
-
-    // Show user message
-    addMessage("user", message);
-    input.value = "";
-
-    // Show typing indicator
-    showTyping();
-
-    // Send to backend
-    fetch("/chat", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ message: message })
-    })
-    .then(response => response.json())
-    .then(data => {
-
-        // Simulated delay for realistic UX
-        setTimeout(() => {
-            hideTyping();
-            addMessage("bot", data.response);
-        }, 700);
-
-    })
-    .catch(() => {
-        hideTyping();
-        addMessage("bot", "Something went wrong. Please try again.");
-    });
-}
-</script>
+<!-- JS FILE -->
+<script src="{{ url_for('static', filename='app.js') }}"></script>
 
 </body>
 </html>
