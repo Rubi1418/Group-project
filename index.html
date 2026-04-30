@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-
-    <!-- Mobile responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>A9 Chatbot</title>
 
-    <!-- CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 
@@ -16,29 +12,22 @@
 
 <div class="chat-container">
 
-    <!-- Persona / Branding -->
     <div class="persona">
         <h2>A9 Chatbot</h2>
-        <p>Your AI assistant for student profiles</p>
+        <p>Ask me about people in the dataset</p>
     </div>
 
-    <!-- Chat Box -->
     <div id="chat-box"></div>
 
-    <!-- Typing Indicator -->
-    <div id="typing" style="display:none; font-style: italic; color: gray; margin: 5px 10px;">
-        A9 is typing...
-    </div>
+    <div id="typing" style="display:none;">A9 is typing...</div>
 
-    <!-- Input Area -->
     <div class="input-area">
-        <input type="text" id="user-input" placeholder="Ask me a question..." />
+        <input id="user-input" placeholder="Ask something..." />
         <button onclick="sendMessage()">Send</button>
     </div>
 
 </div>
 
-<!-- JS FILE -->
 <script src="{{ url_for('static', filename='app.js') }}"></script>
 
 </body>
