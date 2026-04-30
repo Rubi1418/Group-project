@@ -1,46 +1,51 @@
-from flask import Flask, request, jsonify, render_template
-from difflib import get_close_matches
-import json
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
 
-with open("data.json", "r") as file:
-    data = json.load(file)
+# ---------------- DATASET ----------------
+GROUPDATASET = {
+    "tell me about aaron": "Aaron is a Desktop Support Specialist with IT experience.",
+    "tell me about rubi": "Rubi is a Computer Science student and shift manager at McDonald's.",
+    "tell me about ezza": "Ezza works as an Analyst in Freight Forwarding at UPS.",
+    "tell me about rasheed": "Rasheed is an electrician and Army National Guard member.",
+    "tell me about albion": "Albion is a Computer Science student and aspiring developer."
+}
 
-def get_response(user_input):
-    user_input = user_input.lower().strip()
+# ---------------- CHAT LOGIC ----------------
+def get_response(msg):
+    msg = msg.lower().strip()
 
-    if user_input == "":
-        return "Please type a question so I can help."
+    if msg == "":
+        return "Please type something."
 
-    all_questions = []
+    # smarter matching (keyword-based)
+    if "aaron" in msg:
+        return "Aaron Flores works as a Desktop Support Specialist at Color Communications."
 
-    for item in data:
-        for question in item["questions"]:
-            all_questions.append(question)
+    if "rubi" in msg:
+        return "Rubi works as a shift manager at McDonald's."
 
-    matches = get_close_matches(user_input, all_questions, n=3, cutoff=0.45)
+    if "ezza" in msg:
+        return "Ezza works in Freight Forwarding at UPS Supply Chain Solutions."
 
-    if matches:
-        for item in data:
-            for q in item["questions"]:
-                if q in matches:
-                    return item["answer"]
+    if "rasheed" in msg:
+        return "Rasheed is an electrician at Amtrak and serves in the Army National Guard."
 
-    return "I’m not sure I understood that. Try asking something else."
+    if "albion" in msg:
+        return "Albion is a Computer Science student at NEIU."
 
+    return "I don’t have that information yet. Try asking about Aaron, Rubi, Ezza, Rasheed, or Albion."
+# ---------------- ROUTES ----------------
 @app.route("/")
 def home():
     return render_template("index.html")
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    try:
-        user_message = request.json.get("message", "")
-        response = get_response(user_message)
-        return jsonify({"response": response})
-    except:
-        return jsonify({"response": "Something went wrong."})
+    user_message = request.json.get("message")
+    response = get_response(user_message)
+    return jsonify({"response": response})
 
+# ---------------- RUN SERVER ----------------
 if __name__ == "__main__":
     app.run(debug=True)
