@@ -1,0 +1,288 @@
+[
+  {
+    "name": "Aaron Flores",
+    "nicknames": ["aaron"],
+    "headline": "Desktop Support Specialist",
+    "location": "Greater Chicago Area",
+
+    "about": "Aaron is a Desktop Support Specialist with a strong foundation in both IT and mechanical systems. Growing within one company has given him a holistic understanding of organizational workflows and how reliable technical support keeps operations running smoothly. His background in mechanics strengthens his diagnostic abilities and supports a hands-on, solutions-driven approach to troubleshooting. Aaron is actively expanding his computer science knowledge and applying new technical skills to grow within the IT field. He values curiosity, integrity, and collaborative problem-solving, and believes in building work cultures that support long-term success.",
+
+    "education": [
+      {
+        "school": "Northeastern Illinois University",
+        "degree": "Bachelor of Science",
+        "field": "Computer Science"
+      },
+      {
+        "school": "City Colleges of Chicago – Harold Washington College",
+        "degree": "Associate of Science",
+        "field": "Computer Science"
+      }
+    ],
+
+    "experience": [
+      {
+        "title": "Desktop Support Specialist",
+        "company": "Color Communications, LLC",
+        "description": "Provides IT support, hardware installation, system troubleshooting, and technical assistance for internal users. Leverages mechanical and technical experience to diagnose issues and maintain smooth day-to-day operations."
+      }
+    ],
+
+    "skills": [
+      "IT Support",
+      "Troubleshooting",
+      "Hardware Installation",
+      "Technical Diagnostics",
+      "Industrial Mechanics",
+      "Problem Solving",
+      "Customer Support",
+      "Systems Understanding"
+    ],
+
+    "preferred_roles": [
+      "IT Support Specialist",
+      "Help Desk Technician",
+      "Technical Support Analyst",
+      "Field Service Technician"
+    ],
+
+    "team_role": "Technical Support & Infrastructure",
+    "team_reason": "Aaron brings strong troubleshooting skills and systems knowledge, helping the team understand real-world IT workflows and support structures.",
+
+    "availability": "Currently employed; available with 2 weeks' notice",
+    "remote_preference": "Open to remote, hybrid, or on-site",
+    "relocation": "Based in the Greater Chicago Area; open to relocation for the right opportunity",
+    "work_authorization": "Authorized to work in the U.S. without sponsorship",
+
+    "contact": {
+      "linkedin": "https://linkedin.com/in/computeraaron"
+    }
+  },
+
+  {
+    "name": "Rubi Shrestha",
+    "nicknames": ["rubi"],
+    "headline": "CS Student & Shift Manager",
+    "location": "Chicago, IL",
+
+    "about": "Rubi is a Computer Science student and Shift Manager with experience leading teams, coordinating operations, and delivering strong customer service in fast-paced environments. She balances academic excellence with hands-on leadership responsibilities, developing both technical and interpersonal skills that support her long-term goals in tech. Rubi is known for her reliability, communication skills, and ability to keep teams motivated and organized during busy shifts.",
+
+    "education": [
+      {
+        "school": "Northeastern Illinois University",
+        "degree": "Bachelor of Science",
+        "field": "Computer Science"
+      }
+    ],
+
+    "experience": [
+      {
+        "title": "Shift Manager",
+        "company": "McDonald's",
+        "description": "Oversees shift operations, leads team members, manages workflow, and ensures high-quality customer service. Coordinates tasks, resolves issues, and maintains a productive work environment."
+      }
+    ],
+
+    "skills": [
+      "Leadership",
+      "Teamwork",
+      "Customer Service",
+      "Operations Management",
+      "Time Management",
+      "Communication"
+    ],
+
+    "preferred_roles": [
+      "Project Coordinator",
+      "Team Lead",
+      "Customer Success Specialist",
+      "Operations Assistant"
+    ],
+
+    "team_role": "Team Coordination & Communication",
+    "team_reason": "Rubi’s leadership and communication skills help the team stay organized, aligned, and productive during the CS355 project.",
+    "availability": "Available immediately; actively seeking new opportunities",
+    "remote_preference": "Prefers hybrid or remote; open to on-site",
+    "relocation": "Based in Chicago, IL; open to relocation",
+    "work_authorization": "Authorized to work in the U.S. without sponsorship",
+    "contact": {
+      "linkedin": "https://linkedin.com/in/rubi-shrestha-b09913248"
+    }
+  },
+
+  {
+    "name": "Ezza May De La Cruz",
+    "nicknames": ["ezza", "ezza may"],
+    "headline": "Freight Forwarding Analyst | Computer Science Student",
+    "location": "Chicago, IL",
+
+    "about": "Ezza has three years of experience in Supply Chain Solutions, progressing from data entry to an analyst role in freight forwarding operations. She collaborates with cross-functional teams to improve AP efficiency, build internal web tools, centralize data, and enhance workflow visibility. Her diverse background across lifeguarding, aviation ground operations, fast-food service, and administrative roles has shaped her into an adaptable, people-focused professional. She is completing a Bachelor's degree in Computer Science and enjoys live music, gaming, camping, cooking, and learning new technologies.",
+
+    "education": [
+      {
+        "school": "Northeastern Illinois University",
+        "degree": "Bachelor of Science",
+        "field": "Computer Science"
+      }
+    ],
+
+    "experience": [
+      {
+        "title": "Freight Forwarding Analyst",
+        "company": "UPS Supply Chain Solutions",
+        "description": "Manages freight forwarding operations, AP workflow optimization, and account visibility. Builds internal web tools, centralizes data, and collaborates with cross-functional teams to improve process efficiency."
+      },
+      {
+        "title": "Ramp Agent",
+        "company": "Envoy Air",
+        "description": "Supported aviation operations including baggage handling, aircraft servicing, and time-critical ground operations in fast-paced environments."
+      },
+      {
+        "title": "Data Entry Clerk",
+        "company": "UPS Supply Chain Solutions",
+        "description": "Handled high-volume data entry, documentation accuracy, and account support prior to promotion into analyst role."
+      }
+    ],
+
+    "skills": [
+      "Python",
+      "SQL",
+      "HTML",
+      "Automation",
+      "Process Improvement",
+      "Workflow Optimization",
+      "Web Tool Development",
+      "Data Analysis",
+      "Logistics",
+      "Freight Forwarding",
+      "Aviation Operations",
+      "Cross-Functional Collaboration"
+    ],
+
+    "preferred_roles": [
+      "Business Analyst",
+      "Data Analyst",
+      "Automation Specialist",
+      "Operations Analyst",
+      "Process Improvement Specialist"
+    ],
+
+    "team_role": "Lead Developer & Data Architect",
+    "team_reason": "Ezza’s technical background, automation experience, and workflow design skills make her ideal for building the chatbot’s knowledge base and logic.",
+    "availability": "Currently employed; open to new opportunities with reasonable notice",
+    "remote_preference": "Open to remote, hybrid, or on-site",
+    "relocation": "Based in Chicago, IL; open to relocation for the right opportunity",
+    "work_authorization": "Authorized to work in the U.S. without sponsorship",
+    "contact": {
+      "linkedin": "https://linkedin.com/in/ezzamayd"
+    }
+  },
+
+  {
+    "name": "Rasheed Johnson",
+    "nicknames": ["rasheed"],
+    "headline": "Journeyman Electrician & Army National Guard",
+    "location": "Chicago, IL",
+
+    "about": "Rasheed is a motivated and detail-oriented technical professional with over a decade of experience in electrical systems, logistics, and hands-on technical operations across both civilian and military environments. As a Journeyman Electrician at Amtrak and a member of the Army National Guard, he has developed strong leadership abilities, operational discipline, and the ability to perform under high-pressure conditions. He has extensive experience tracking, interpreting, and managing large datasets to support maintenance workflows and system reliability. Currently pursuing a B.S. in Computer Science, Rasheed has a strong foundation in programming, data structures, and analytics, and is focused on using technology to improve processes, extract insights, and support data-driven decision-making.",
+
+    "education": [
+      {
+        "school": "Northeastern Illinois University",
+        "degree": "Bachelor of Science",
+        "field": "Computer Science"
+      }
+    ],
+
+    "experience": [
+      {
+        "title": "Journeyman Electrician",
+        "company": "Amtrak",
+        "description": "Performs electrical system maintenance, diagnostics, and troubleshooting for rail operations and infrastructure. Manages technical workflows and ensures system reliability in high-demand environments."
+      },
+      {
+        "title": "Soldier",
+        "company": "Army National Guard",
+        "description": "Serves in logistics and technical operations with over 10 years of leadership experience. Manages equipment, coordinates teams, and supports mission readiness through disciplined operational execution."
+      }
+    ],
+
+    "skills": [
+      "Electrical Systems",
+      "Troubleshooting",
+      "Logistics",
+      "Leadership",
+      "Technical Operations",
+      "Maintenance",
+      "Data Interpretation",
+      "Workflow Management",
+      "Problem Solving",
+      "Operational Analysis"
+    ],
+
+    "preferred_roles": [
+      "Technical Operations Specialist",
+      "Field Technician",
+      "Systems Analyst",
+      "Maintenance Supervisor"
+    ],
+
+    "team_role": "Systems Logic & Reliability",
+    "team_reason": "Rasheed’s operational discipline, troubleshooting experience, and structured thinking help ensure the chatbot’s logic is reliable and well‑organized.",
+    "availability": "Currently employed; available for opportunities with flexible start",
+    "remote_preference": "Open to remote, hybrid, or on-site",
+    "relocation": "Based in Chicago, IL; open to relocation",
+    "work_authorization": "U.S. Army National Guard; authorized to work in the U.S. without sponsorship",
+    "contact": {
+      "linkedin": "https://linkedin.com/in/sheed"
+    }
+  },
+
+  {
+    "name": "Albion Kita",
+    "nicknames": ["albion"],
+    "headline": "Aspiring Software Developer",
+    "location": "Chicago, IL",
+
+    "about": "Albion is a Computer Science student at Northeastern Illinois University with a strong interest in software development, web technologies, and problem solving. He enjoys building web projects, experimenting with new tools, and deepening his understanding of how software works behind the scenes. His curiosity drives him to continuously learn new technologies and improve his technical skills. He is hardworking, motivated, and thrives in collaborative environments where he can solve problems with others and take on challenges that help him grow as a developer.",
+
+    "education": [
+      {
+        "school": "Northeastern Illinois University",
+        "degree": "Bachelor of Science",
+        "field": "Computer Science"
+      }
+    ],
+
+    "experience": [],
+
+    "skills": [
+      "Python",
+      "Java",
+      "C++",
+      "JavaScript",
+      "Web Development",
+      "Software Development",
+      "Problem Solving",
+      "Team Collaboration",
+      "Continuous Learning"
+    ],
+
+    "preferred_roles": [
+      "Junior Software Developer",
+      "Web Developer",
+      "Frontend Developer",
+      "Backend Developer"
+    ],
+
+    "team_role": "Developer & Research Assistant",
+    "team_reason": "Albion contributes coding support, research, and problem‑solving skills that help build and refine the chatbot’s functionality.",
+    "availability": "Available immediately; actively seeking entry-level opportunities",
+    "remote_preference": "Open to remote, hybrid, or on-site",
+    "relocation": "Based in Chicago, IL; open to relocation",
+    "work_authorization": "Authorized to work in the U.S. without sponsorship",
+    "contact": {
+      "linkedin": "https://linkedin.com/in/albionkita"
+    }
+  }
+]

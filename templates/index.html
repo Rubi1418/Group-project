@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bob – Team Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<main class="chat-container" role="main">
+
+    <!-- Header -->
+    <header class="chat-header" aria-label="Bob Assistant header">
+        <div class="avatar" aria-hidden="true">Bob</div>
+        <div class="header-info">
+            <h1>Bob</h1>
+            <span class="status" aria-label="Status: Online">Online</span>
+        </div>
+    </header>
+
+    <!-- Chat Messages -->
+    <section
+        id="chat-box"
+        class="chat-box"
+        role="log"
+        aria-live="polite"
+        aria-label="Chat messages"
+    >
+        <div class="message bot" role="article">
+            Hey there! I'm Bob, your team knowledge assistant. Ask me anything about Aaron, Rubi, Ezza, Rasheed, or Albion.
+        </div>
+    </section>
+
+    <!-- Typing Indicator -->
+    <div id="typing-indicator" class="typing hidden" aria-hidden="true">
+        <span class="typing-label">Bob is thinking</span>
+        <span class="dot-bounce" aria-hidden="true">
+            <span></span><span></span><span></span>
+        </span>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area" role="form" aria-label="Message input">
+        <label for="user-input" class="sr-only">Type your question</label>
+        <input
+            id="user-input"
+            type="text"
+            placeholder="Ask about the team…"
+            autocomplete="off"
+            aria-label="Type your question"
+            maxlength="300"
+        />
+        <button
+            class="send-btn"
+            id="send-btn"
+            onclick="sendMessage()"
+            aria-label="Send message"
+        >
+            <!-- Paper-plane send icon -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+        </button>
+    </div>
+
+</main>
+
+<style>
+  /* Screen-reader only utility */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+</style>
+
+<script>
+const MIN_THINKING_MS = 600;   // floor so it never feels instant
+const MAX_THINKING_MS = 1200;  // cap well under the 2 s requirement
+
+function setInputEnabled(enabled) {
+    const input = document.getElementById("user-input");
+    const btn   = document.getElementById("send-btn");
+    input.disabled = !enabled;
+    btn.disabled   = !enabled;
+    if (enabled) input.focus();
+}
+
+function appendMessage(text, sender) {
+    const chatBox = document.getElementById("chat-box");
+    const msg = document.createElement("div");
+    msg.className = `message ${sender}`;
+    msg.setAttribute("role", "article");
+    const escaped = text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    msg.innerHTML = escaped.replace(/\n/g, "<br>");
+    chatBox.appendChild(msg);
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function showTyping(show) {
+    const indicator = document.getElementById("typing-indicator");
+    if (!indicator) return;
+    indicator.classList.toggle("hidden", !show);
+    indicator.setAttribute("aria-hidden", show ? "false" : "true");
+}
+
+async function sendMessage() {
+    const input = document.getElementById("user-input");
+    const message = input.value.trim();
+    if (!message) return;
+
+    appendMessage(message, "user");
+    input.value = "";
+    setInputEnabled(false);
+    showTyping(true);
+
+    const start = Date.now();
+
+    try {
+        const response = await fetch("/chat", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message })
+        });
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+
+        // Ensure a minimum visible thinking delay for realism (≤ 2 s total)
+        const elapsed = Date.now() - start;
+        const remaining = Math.min(MIN_THINKING_MS, MAX_THINKING_MS) - elapsed;
+        if (remaining > 0) await new Promise(r => setTimeout(r, remaining));
+
+        appendMessage(data.response || "I could not generate a response.", "bot");
+    } catch (error) {
+        appendMessage("Sorry, something went wrong. Please try again.", "bot");
+        console.error(error);
+    } finally {
+        showTyping(false);
+        setInputEnabled(true);
+    }
+}
+
+document.getElementById("user-input").addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+    }
+});
+</script>
+
+</body>
+</html>
